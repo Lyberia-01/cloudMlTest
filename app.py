@@ -33,11 +33,12 @@ def get_weather_feedback():
         return jsonify({
             "status": "success",
             "received_data": data,
-            "gemini_feedback": feedback
+            "reply": feedback
         }), 200
 
     except Exception as e:
+        print(e)
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0')
